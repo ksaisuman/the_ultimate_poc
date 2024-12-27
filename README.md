@@ -1,13 +1,19 @@
 # The Ultimate Proof of Concept (POC)
 
-This repository contains the setup and usage instructions for the Django app **the_ultimate_poc**. The app is containerized using Docker and uses tools like Vegeta, StatsD Exporter, and Prometheus for testing and monitoring.
+This is a POC app to learn about how http requests are handled by backend servers and what are the general bottlenecks. To replicate the bottlenecks the resources of the app are limited to 1 cpu and 256m memory. The app is containerized using Docker and uses tools like Vegeta, StatsD Exporter, and Prometheus for testing and monitoring.
+
+## Progress
+
+1. Created a simple Django app and ran it in debug mode inside a docker container. It was able to handle upto 500 QPS upto 30 seconds.
+2. Ran the app using gunicorn and adjusted the number of workers and threads so that the app can handle upto 1500 QPS upto 30 seconds.
+3. Using prom/statsd-exporter and prometheus to capture the metrics provided by gunicorn.
 
 ## Prerequisites
 
 Ensure that you have the following installed on your system:
 
 - Docker
-- Docker Compose (optional, if using docker-compose.yml in the future)
+- Python3
 
 ## Getting Started
 
